@@ -1,0 +1,20 @@
+CREATE TABLE test_sheet (
+id SERIAL PRIMARY KEY,
+owner VARCHAR(20),
+name VARCHAR(25),
+class VARCHAR(15),
+level INTEGER
+);
+
+INSERT INTO test_sheet (owner, name, class, level)
+VALUES (
+'Kevin',
+'Lyght',
+'Monk',
+5
+)
+
+1250
+7 days
+1750
+30 days

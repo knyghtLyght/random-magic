@@ -1,0 +1,82 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "level": 1,
+      "name": "testname",
+      "class": "testclass",
+      "base": "sword",
+      "rarity": "common",
+      "effects": [
+        {
+          "id": 1,
+          "name": "testeffectnameOne",
+          "effect": "testeffectOne"
+        },
+        {
+          "id": 2,
+          "name": "testeffectnameTwo",
+          "effect": "testeffectTwo"
+        },
+        {
+          "id": 3,
+          "name": "testeffectnameThree",
+          "effect": "testeffectThree"
+        }
+      ],
+      "flavor": "testflavorOne"
+    },
+    {
+      "id": 2,
+      "level": 2,
+      "name": "testname",
+      "class": "testclass",
+      "base": "sword",
+      "rarity": "common",
+      "effects": [
+        {
+          "id": 1,
+          "name": "testeffectnameOne",
+          "effect": "testeffectOne"
+        },
+        {
+          "id": 2,
+          "name": "testeffectnameTwo",
+          "effect": "testeffectTwo"
+        },
+        {
+          "id": 3,
+          "name": "testeffectnameThree",
+          "effect": "testeffectThree"
+        }
+      ],
+      "flavor": "testflavorTwo"
+    },
+    {
+      "id": 3,
+      "level": 3,
+      "name": "testname",
+      "class": "testclass",
+      "base": "sword",
+      "rarity": "common",
+      "effects": [
+        {
+          "id": 1,
+          "name": "testeffectnameOne",
+          "effect": "testeffectOne"
+        },
+        {
+          "id": 2,
+          "name": "testeffectnameTwo",
+          "effect": "testeffectTwo"
+        },
+        {
+          "id": 3,
+          "name": "testeffectnameThree",
+          "effect": "testeffectThree"
+        }
+      ],
+      "flavor": "testflavorThree"
+    }
+  ]
+}
