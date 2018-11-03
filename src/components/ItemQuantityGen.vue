@@ -21,7 +21,7 @@
         <label>Bosses</label>
         <input v-model="monsterList.boss" type="number" step="1">
       </div>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Get Number of Drops">
     </form>
   </div>
 </template>
@@ -36,6 +36,7 @@ export default {
   },
   methods: {
     createFreshQuantityList() {
+      console.log("new quan list");
       return {
         partyLevel: 0,
         none: 0,
@@ -56,6 +57,7 @@ export default {
       };
     },
     generateItemTypes() {
+      console.log("gen called");
       var rarityList = [
         "none",
         "common",
@@ -66,19 +68,25 @@ export default {
         "artifact"
       ];
       var minionWeight = [0.8, 0.1, 0.05, 0.05, 0, 0, 0];
+      var eliteWeight = [0.2, 0.2, 0.2, 0.2, 0.1, 0.1, 0];
+      var champWeight = [0, 0.2, 0.4, 0.1, 0.15, 0.1, 0.05];
+      var bossWeight = [0, 0, 0.4, 0.2, 0.2, 0.1, 0.1];
+
       for (var i = 0; i < this.monsterList.minion; i++) {
-        ++this.quantityList[this.generateRarity(rarityList, minionWeight)];
+        console.log("minion rare check called" + i);
+        this.quantityList[this.generateRarity(rarityList, minionWeight)]++;
       }
     },
     generateRarity(list, weight) {
       var random_num = Math.random() * (1.0 - 0.0) + 0.0;
-      var weight_sum = 0;
-
+      var weight_sum = 0.0;
+      console.log("rand = " + random_num);
       for (var i = 0; i < list.length; i++) {
         weight_sum += weight[i];
         weight_sum = +weight_sum.toFixed(3);
 
         if (random_num <= weight_sum) {
+          console.log("rare picked = " + list[i]);
           return list[i];
         }
       }

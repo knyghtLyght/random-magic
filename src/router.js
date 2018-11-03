@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import ItemShow from "./views/ItemShow.vue";
 
 Vue.use(Router);
 
@@ -12,6 +13,12 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home
+    },
+    {
+      path: "/item/:id",
+      name: "item-show",
+      component: ItemShow,
+      props: true
     },
     {
       path: "/about",
