@@ -1,27 +1,18 @@
 <template>
   <div class="quantity-card">
+    <h3>Drops by Monster Class</h3>
     <form @submit.prevent="generateItemTypes" class="quantity-search">
-      <div>
-        <label>Party Level</label>
-        <input v-model="quantityList.partyLevel" type="number" step="1">
-      </div>
-      <div>
-        <label>Minions</label>
-        <input v-model="monsterList.minion" type="number" step="1">
-      </div>
-      <div>
-        <label>Elites</label>
-        <input v-model="monsterList.elite" type="number" step="1">
-      </div>
-      <div>
-        <label>Champions</label>
-        <input v-model="monsterList.champ" type="number" step="1">
-      </div>
-      <div>
-        <label>Bosses</label>
-        <input v-model="monsterList.boss" type="number" step="1">
-      </div>
-      <input type="submit" value="Get Number of Drops">
+      <label>Party Level</label>
+      <input v-model="quantityList.partyLevel" type="number" step="1" style="width:35px">
+      <label>Minions</label>
+      <input v-model="monsterList.minion" type="number" step="1" style="width:35px">
+      <label>Elites</label>
+      <input v-model="monsterList.elite" type="number" step="1" style="width:35px">
+      <label>Champions</label>
+      <input v-model="monsterList.champ" type="number" step="1" style="width:35px">
+      <label>Bosses</label>
+      <input v-model="monsterList.boss" type="number" step="1" style="width:35px">
+      <input type="submit" value="Get Number of Drops" class="full-width">
     </form>
   </div>
 </template>
@@ -96,4 +87,20 @@ export default {
 </script>
 
 <style scoped>
+form {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 5px;
+}
+label,
+button {
+  grid-column: 1/2;
+}
+input {
+  grid-column: 2/3;
+}
+.full-width {
+  grid-column: 1/3;
+}
 </style>

@@ -1,18 +1,18 @@
 <template>
-  <router-link class="item-link" :to="{name: 'item-show', params: {id: item.id} }">
+  <div class="item-link" :to="{name: 'item-show', params: {id: item.id} }">
     <div class="item-card -shadow">
-      <span class="item-level">Item Level{{item.level}}</span>
-      <span class="search-level">Search Level{{searchLevel}}</span>
+      <span class="item-level">Item Level {{item.level}}</span>
+      <span class="search-level">Search Level {{searchLevel}}</span>
       <h3 class="item-name">{{item.name}}</h3>
       <h4 class="item-class">{{item.class}}</h4>
       <span class="item-base">Item Type: {{item.base}}</span>
-      <span class="item-rarity">{{item.rarity}}</span>
+      <span class="item-rarity">Rarity: {{item.rarity}}</span>
       <ul class="item-effects">
         <li v-for="effect in item.effects" :key="effect.id">{{effect.name}} {{effect.effect}}</li>
       </ul>
       <p class="item-flavor">{{item.flavor}}</p>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script>
@@ -46,5 +46,11 @@ export default {
   color: black;
   text-decoration: none;
   font-weight: 100;
+}
+.item-rarity {
+  display: block;
+}
+.search-level {
+  margin-left: 5px;
 }
 </style>
