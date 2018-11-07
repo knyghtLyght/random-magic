@@ -12,7 +12,8 @@
       <input v-model="monsterList.champ" type="number" step="1" style="width:35px">
       <label>Bosses</label>
       <input v-model="monsterList.boss" type="number" step="1" style="width:35px">
-      <input type="submit" value="Get Number of Drops" class="full-width">
+      <input type="submit" value="Get Number of Drops" class="drops-button">
+      <input type="submit" value="Get Random items" class="random-button">
     </form>
   </div>
 </template>
@@ -27,7 +28,6 @@ export default {
   },
   methods: {
     createFreshQuantityList() {
-      console.log("new quan list");
       return {
         partyLevel: 0,
         none: 0,
@@ -49,6 +49,7 @@ export default {
     },
     generateItemTypes() {
       console.log("gen called");
+      var returnObj = this.quantityList;
       var rarityList = [
         "none",
         "common",
@@ -65,8 +66,11 @@ export default {
 
       for (var i = 0; i < this.monsterList.minion; i++) {
         console.log("minion rare check called" + i);
-        this.quantityList[this.generateRarity(rarityList, minionWeight)]++;
+        returnObj[this.generateRarity(rarityList, minionWeight)]++;
       }
+      this.$emit("update-Drops", returnObj);
+      // this.$store.dispatch("updateSearch", this.quantityList);
+      // this.$store.dispatch("updateMonster", this.monsterList);
     },
     generateRarity(list, weight) {
       var random_num = Math.random() * (1.0 - 0.0) + 0.0;
@@ -100,7 +104,10 @@ button {
 input {
   grid-column: 2/3;
 }
-.full-width {
-  grid-column: 1/3;
+.drops-button {
+  grid-column: 1/2;
+}
+.random-button {
+  grid-column: 2/3;
 }
 </style>

@@ -47,6 +47,32 @@ export default new Vuex.Store({
           }
         ],
         flavor: "testflavorOne"
+      },
+      {
+        id: 2,
+        level: 2,
+        name: "testname",
+        class: "testclass",
+        base: "sword",
+        rarity: "common",
+        effects: [
+          {
+            id: 1,
+            name: "testeffectnameOne",
+            effect: "testeffectOne"
+          },
+          {
+            id: 2,
+            name: "testeffectnameTwo",
+            effect: "testeffectTwo"
+          },
+          {
+            id: 3,
+            name: "testeffectnameThree",
+            effect: "testeffectThree"
+          }
+        ],
+        flavor: "testflavorOne"
       }
     ]
   },
@@ -61,5 +87,24 @@ export default new Vuex.Store({
       state.itemsState = items;
     }
   },
-  actions: {}
+  actions: {
+    updateMonster({ commit }, monsterObj) {
+      return commit("UPDATE_MONSTERS", monsterObj);
+    },
+    updateSearch({ commit }, searchObj) {
+      return commit("UPDATE_SEARCH", searchObj);
+    }
+  },
+  getters: {
+    rolledDrops: state => {
+      var dropsArray = [];
+      var searchArray = state.searchState.entries;
+      for (var [key, val] in searchArray) {
+        if (val > 0) {
+          dropsArray.push([key, state.searchState.partyLevel]);
+        }
+      }
+      return dropsArray;
+    }
+  }
 });
