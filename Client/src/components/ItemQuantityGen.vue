@@ -85,16 +85,7 @@ export default {
         returnObj[this.generateRarity(rarityList, bossWeight)]++;
       }
       this.$emit("update-Drops", returnObj, this.dropType);
-      this.quantityList = {
-        partyLevel: 0,
-        none: 0,
-        common: 0,
-        uncommon: 0,
-        rare: 0,
-        vRare: 0,
-        legendary: 0,
-        artifact: 0
-      };
+      this.quantityList = this.createFreshQuantityList();
       // this.$store.dispatch("updateSearch", this.quantityList);
       // this.$store.dispatch("updateMonster", this.monsterList);
     },

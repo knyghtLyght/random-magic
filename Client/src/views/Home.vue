@@ -9,23 +9,23 @@
           <span class="drop-amount">{{dropsList.common}}</span>
           <span class="drop-label">Common </span>
         </div>
-        <div class="drop-group">
+        <div class="drop-group" id="uncommon-group">
           <span class="drop-amount">{{dropsList.uncommon}}</span>
           <span class="drop-label">Uncommon </span>
         </div>
-        <div class="drop-group">
+        <div class="drop-group" id="rare-group">
           <span class="drop-amount">{{dropsList.rare}}</span>
           <span class="drop-label">Rare </span>
         </div>
-        <div class="drop-group">
+        <div class="drop-group" id="vrare-group">
           <span class="drop-amount">{{dropsList.vRare}}</span>
           <span class="drop-label">Very Rare </span>
         </div>
-        <div class="drop-group">
+        <div class="drop-group" id="leg-group">
           <span class="drop-amount">{{dropsList.legendary}}</span>
           <span class="drop-label">Legendary </span>
         </div>
-        <div class="drop-group">
+        <div class="drop-group" id="art-group">
           <span class="drop-amount">{{dropsList.artifact}}</span>
           <span class="drop-label">Artifact </span>
         </div>
@@ -74,7 +74,7 @@ export default {
     },
     searchSingle(searchObj) {
       console.log(searchObj);
-      return searchObj;
+      return { item: searchObj, officalContentFlag: this.officalContent };
     },
     clearHandler() {
       this.$store.dispatch("clearItems");
@@ -119,7 +119,19 @@ export default {
 .utility-options > input {
   margin-right: 20px;
 }
-#common-group {
+#uncommon-group {
   background-color: #d1efd0;
+}
+#rare-group {
+  background-color: #b8d1f9;
+}
+#vrare-group {
+  background-color: #d89ae0;
+}
+#leg-group {
+  background-color: #e0cc91;
+}
+#art-group {
+  background-color: #e09191;
 }
 </style>
