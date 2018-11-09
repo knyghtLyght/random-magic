@@ -1,4 +1,3 @@
-console.log('hello')
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -16,3 +15,4 @@ app.get('/status', (req, res) => {
 })
 
 app.listen(process.env.PORT || 8081)
+console.log('Listening on port 8081')
