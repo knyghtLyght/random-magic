@@ -4,19 +4,37 @@
     <div id="content">
       <ItemQuantityGen @update-Drops="updateDrops" class="search-col"/>
       <div class="random-drops-display">
-        <span>Common </span>
-        <span>{{dropsList.common}}</span>
-        <span>Uncommon </span>
-        <span>{{dropsList.uncommon}}</span>
-        <span>Rare </span>
-        <span>{{dropsList.rare}}</span>
-        <span>Very Rare </span>
-        <span>{{dropsList.vRare}}</span>
-        <span>Legendary </span>
-        <span>{{dropsList.legendary}}</span>
-        <span>Artifact </span>
-        <span>{{dropsList.artifact}}</span>
-        <ItemTypeGen class="search-list"/>
+        <h3>Rolled Drops</h3>
+        <div class="drop-group" id="common-group">
+          <span class="drop-amount">{{dropsList.common}}</span>
+          <span class="drop-label">Common </span>
+        </div>
+        <div class="drop-group">
+          <span class="drop-amount">{{dropsList.uncommon}}</span>
+          <span class="drop-label">Uncommon </span>
+        </div>
+        <div class="drop-group">
+          <span class="drop-amount">{{dropsList.rare}}</span>
+          <span class="drop-label">Rare </span>
+        </div>
+        <div class="drop-group">
+          <span class="drop-amount">{{dropsList.vRare}}</span>
+          <span class="drop-label">Very Rare </span>
+        </div>
+        <div class="drop-group">
+          <span class="drop-amount">{{dropsList.legendary}}</span>
+          <span class="drop-label">Legendary </span>
+        </div>
+        <div class="drop-group">
+          <span class="drop-amount">{{dropsList.artifact}}</span>
+          <span class="drop-label">Artifact </span>
+        </div>
+        <ItemTypeGen @handle-item-search="searchSingle" class="search-list"/>
+        <div class="utility-options">
+          <label>Use Offical Content Only</label>
+          <input type="checkbox" v-model="officalContent">
+          <button v-on:click="clearHandler" class="clear-button">Clear Item List</button>
+        </div>
       </div>
       <div class="item-col">
         <ItemCard v-for="item in items" :key="item.id" :item="item"/>
@@ -45,22 +63,22 @@ export default {
   data() {
     return {
       items: this.$store.state.itemsState,
-      dropsList: this.$store.state.searchState
+      dropsList: this.$store.state.searchState,
+      officalContent: true
     };
   },
   methods: {
-    updateDrops(updateObj) {
-      this.dropsList = {
-        partyLevel: 0,
-        none: 0,
-        common: 0,
-        uncommon: 0,
-        rare: 0,
-        vRare: 0,
-        legendary: 0,
-        artifact: 0
-      };
+    updateDrops(updateObj, dropType) {
+      console.log(dropType);
       this.dropsList = updateObj;
+    },
+    searchSingle(searchObj) {
+      console.log(searchObj);
+      return searchObj;
+    },
+    clearHandler() {
+      this.$store.dispatch("clearItems");
+      this.items = this.$store.state.itemsState;
     }
   }
 };
@@ -84,5 +102,24 @@ export default {
 .search-list {
   grid-column: 2/3;
   margin-top: 18px;
+}
+.drop-group {
+  display: inline-block;
+  margin: 5px;
+}
+.random-drops-display {
+  text-align: center;
+}
+.drop-amount {
+  display: block;
+}
+.utility-options {
+  margin-top: 20px;
+}
+.utility-options > input {
+  margin-right: 20px;
+}
+#common-group {
+  background-color: #d1efd0;
 }
 </style>

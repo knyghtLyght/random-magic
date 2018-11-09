@@ -8,7 +8,7 @@
       <span class="item-base">Item Type: {{item.base}}</span>
       <span class="item-rarity">Rarity: {{item.rarity}}</span>
       <ul class="item-effects">
-        <li v-for="effect in item.effects" :key="effect.id">{{effect.name}} {{effect.effect}}</li>
+        <li v-for="effect in item.effects" :key="effect.id">{{effect.effect}}</li>
       </ul>
       <p class="item-flavor">{{item.flavor}}</p>
     </div>
@@ -52,5 +52,8 @@ export default {
 }
 .search-level {
   margin-left: 5px;
+}
+.item-flavor {
+  text-align: center;
 }
 </style>

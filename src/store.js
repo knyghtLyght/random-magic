@@ -83,8 +83,11 @@ export default new Vuex.Store({
     UPDATE_MONSTERS(state, monsterObj) {
       state.monsterState = monsterObj;
     },
-    UPDATE_ITEMS(state, items) {
-      state.itemsState = items;
+    UPDATE_ITEMS(state, item) {
+      state.itemsState.push(item);
+    },
+    CLEAR_ITEMS(state) {
+      state.itemsState = [];
     }
   },
   actions: {
@@ -93,6 +96,12 @@ export default new Vuex.Store({
     },
     updateSearch({ commit }, searchObj) {
       return commit("UPDATE_SEARCH", searchObj);
+    },
+    updateItems({ commit }, itemObj) {
+      return commit("UPDATE_ITEMS", itemObj);
+    },
+    clearItems({ commit }) {
+      return commit("CLEAR_ITEMS");
     }
   },
   getters: {

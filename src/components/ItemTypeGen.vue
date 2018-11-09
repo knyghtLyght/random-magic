@@ -1,8 +1,9 @@
 <template>
   <div class="item-search-group">
-    <form>
+    <h3>Roll Single Item</h3>
+    <form @submit.prevent="handle-item-search">
       <label>Item Level: </label>
-      <input v-model="searchObj.itemLevel" type="number" style="width:35px" value="searchList[1]">
+      <input v-model="searchObj.itemLevel" type="number" style="width:35px">
       <label>Item Type: </label>
       <select v-model="searchObj.itemType" class="item-type">
         <option v-for="type in typeOptions" :key="type">{{type}}</option>
@@ -11,16 +12,13 @@
       <select v-model="searchObj.itemRarity" class="item-rarity">
         <option v-for="rarity in rarityOptions" :key="rarity">{{rarity}}</option>
       </select>
-      <input type="submit" value="Set" class="set-button">
+      <input type="submit" value="Roll" class="set-button">
     </form>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    searchList: Array
-  },
   computed: {
     searchLevel() {
       return this.$store.state.searchState.partyLevel;
@@ -62,13 +60,20 @@ export default {
     createFreshSearchObj() {
       return {
         itemLevel: 1,
-        itemType: "",
-        itemRarity: ""
+        itemType: "Any",
+        itemRarity: "Any"
       };
+    },
+    itemSearchHandler() {
+      this.$emit("handle-item-search", this.searchObj);
     }
   }
 };
 </script>
 
 <style scoped>
+label,
+input {
+  margin: 2px;
+}
 </style>
