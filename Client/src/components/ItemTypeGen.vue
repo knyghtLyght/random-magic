@@ -1,7 +1,7 @@
 <template>
   <div class="item-search-group">
     <h3>Roll Single Item</h3>
-    <form @submit.prevent="handle-item-search">
+    <form @submit.prevent="itemSearchHandler">
       <label>Item Level: </label>
       <input v-model="searchObj.itemLevel" type="number" style="width:35px">
       <label>Item Type: </label>

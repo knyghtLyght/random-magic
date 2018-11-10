@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Background img" src="../assets/bannerPic.jpg">
+    <img id="banenrImg" alt="Background img" src="../assets/bannerPic.jpg">
     <div id="content">
       <ItemQuantityGen @update-Drops="updateDrops" class="search-col"/>
       <div class="random-drops-display">
@@ -87,7 +87,10 @@ export default {
 <style scoped>
 #content {
   margin: auto;
+  padding-left: 5%;
+  padding-right: 5%;
   width: 900px;
+  background-color: #ffffffcc;
   display: grid;
   grid-template-columns: 40% 1fr;
   grid-column-gap: 16px;
@@ -133,5 +136,9 @@ export default {
 }
 #art-group {
   background-color: #e09191;
+}
+#banenrImg {
+  position: absolute;
+  z-index: -1;
 }
 </style>
