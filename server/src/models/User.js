@@ -1,3 +1,4 @@
+// Setup our user data model for sequelize
 module.exports = (sequelize, DataTypes) =>
   sequelize.define('User', {
     email: {
