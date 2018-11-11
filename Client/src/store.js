@@ -98,7 +98,7 @@ export default new Vuex.Store({
       return commit("UPDATE_SEARCH", searchObj);
     },
     updateItems({ commit }, searchObj) {
-      searchObj.item.id = this.state.itemsState.length - 1;
+      searchObj.item.id = this.state.itemsState[length - 1].id + 1;
       return commit("UPDATE_ITEMS", searchObj);
     },
     clearItems({ commit }) {

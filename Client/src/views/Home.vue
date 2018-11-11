@@ -109,6 +109,7 @@ export default {
 .drop-group {
   display: inline-block;
   margin: 5px;
+  padding: 2px;
 }
 .random-drops-display {
   text-align: center;
