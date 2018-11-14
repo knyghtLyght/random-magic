@@ -40,7 +40,7 @@ module.exports = {
         })
       }
       // Handel password validation
-      const isPassValid = password === user.password
+      const isPassValid = await user.comparePssword(password)
       if (!isPassValid) {
         return res.status(403).send({
           error: 'The password was incorect'

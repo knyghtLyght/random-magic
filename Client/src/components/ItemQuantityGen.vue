@@ -1,7 +1,7 @@
 <template>
   <div class="quantity-card">
     <h3>Drops by Monster Class</h3>
-    <form @submit.prevent="generateItemTypes" class="quantity-search">
+    <v-form @submit.prevent="generateItemTypes" class="quantity-search">
       <label>Party Level</label>
       <input v-model="quantityList.partyLevel" type="number" step="1" style="width:35px">
       <label>Minions</label>
@@ -17,7 +17,7 @@
       <label>Get Random items</label>
       <input v-model="dropType" type="radio" name="dropType" value="items" class="random-radio">
       <input type="submit" value="Submit" class="search-button">
-    </form>
+    </v-form>
   </div>
 </template>
 
