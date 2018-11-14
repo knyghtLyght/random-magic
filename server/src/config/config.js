@@ -10,5 +10,8 @@ module.exports = {
       host: process.env.DB_HOST || 'sqlite',
       storage: './randommagic.sqlite'
     }
+  },
+  authentication: {
+    jwtSecret: process.env.JWT_SECRET || 'secret'
   }
 }
