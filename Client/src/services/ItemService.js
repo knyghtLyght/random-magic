@@ -2,9 +2,9 @@ import Api from "@/services/Api";
 
 export default {
   indexItems() {
-    return Api().get("songs");
+    return Api().get("items");
   },
   indexEffects() {
-    return Api().get("login");
+    return Api().post("items");
   }
 };
