@@ -1,5 +1,5 @@
 <template>
-  <div class="item-link" :to="{name: 'item-show', params: {id: item.id} }">
+  <div class="item-link">
     <div class="item-card -shadow">
       <span class="item-level">Item Level {{item.level}}</span>
       <span class="search-level">Search Level {{searchLevel}}</span>

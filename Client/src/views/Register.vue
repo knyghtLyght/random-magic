@@ -1,27 +1,31 @@
 <template>
-  <panel title="Register">
-    <v-form ref="form" v-model="valid" class="pl-4 pr-4 pt-2 pb-2">
-      <v-text-field 
-        v-model="userObj.email"
-        label="Email"
-        :rules="emailRules"
-        required
-      ></v-text-field>
-      <v-text-field 
-        v-model="userObj.password"
-        label="Password"
-        :rules="passRules"
-        :counter="32"
-        :append-icon="passMask ? 'visibility_off' : 'visibility'"
-        :type="passMask ? 'text' : 'password'"
-        @click:append="passMask = !passMask"
-        required
-      ></v-text-field>
-      <div class="error" v-html="error"></div>
-      <v-btn class="log-btn" @click="login">Login</v-btn>
-      <v-btn class="reg-btn" @click="register">Register</v-btn>
-    </v-form>
-  </panel>
+  <v-container>
+    <v-layout align-center justify-center column fill-height>
+      <panel title="Register">
+        <v-form ref="form" v-model="valid" class="pl-4 pr-4 pt-2 pb-2">
+          <v-text-field 
+            v-model="userObj.email"
+            label="Email"
+            :rules="emailRules"
+            required
+          ></v-text-field>
+          <v-text-field 
+            v-model="userObj.password"
+            label="Password"
+            :rules="passRules"
+            :counter="32"
+            :append-icon="passMask ? 'visibility_off' : 'visibility'"
+            :type="passMask ? 'text' : 'password'"
+            @click:append="passMask = !passMask"
+            required
+          ></v-text-field>
+          <div class="error" v-html="error"></div>
+          <v-btn class="log-btn" @click="login">Login</v-btn>
+          <v-btn class="reg-btn" @click="register">Register</v-btn>
+        </v-form>
+      </panel>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

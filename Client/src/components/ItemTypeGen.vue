@@ -16,6 +16,7 @@
             label="Item Type"
             v-model="searchObj.itemType"
             style="width:120px"
+            box
           ></v-select>
         </v-flex>
         <v-flex>
@@ -23,9 +24,12 @@
             label="Item Rarity"
             :items="rarityOptions"
             v-model="searchObj.itemRarity"
+            box
           ></v-select>
         </v-flex>
-        <v-btn @click="itemSearchHandler">Roll</v-btn>
+        <v-flex class="pb-3">
+          <v-btn @click="itemSearchHandler">Roll</v-btn>
+        </v-flex>
       </v-layout>
       <v-layout>
         <v-flex xs3>
@@ -33,7 +37,6 @@
             v-model="officalOnly"
             label="Offical content only"
             color="success"
-            value="true"
             hide-details
           ></v-checkbox>
         </v-flex>

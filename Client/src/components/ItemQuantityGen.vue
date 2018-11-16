@@ -34,6 +34,7 @@
       <v-select
         :items="searchTypeOptions"
         v-model="searchType"
+        box
       ></v-select>
       <v-layout row wrap>
         <v-flex xs6>
@@ -44,7 +45,6 @@
             v-model="officalOnly"
             label="Offical content only"
             color="success"
-            value="true"
             hide-details
           ></v-checkbox>
         </v-flex>

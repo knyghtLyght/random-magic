@@ -27,7 +27,7 @@ export default new Router({
       component: UserProfile
     },
     {
-      path: "/item/:id",
+      path: "/items",
       name: "item-show",
       component: ItemShow,
       props: true
