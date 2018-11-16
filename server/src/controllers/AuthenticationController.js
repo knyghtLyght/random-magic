@@ -13,9 +13,14 @@ function jwtSignUser (user) {
 module.exports = {
   async register (req, res) {
     try {
-      const user = await User.create(req.body) // Create a blank User db object
-      res.send(user.toJSON())
+      const user = await User.create(req.body) // Create a user db object and populate it with the info from body
+      const userJson = user.toJSON()
+      res.send({
+        user: userJson,
+        token: jwtSignUser(userJson)
+      })
     } catch (error) {
+      console.log(error)
       // error handling
       // Email is set UNIQUE in our db so a falure here is a result of the email
       res.status(400).send({
@@ -39,8 +44,8 @@ module.exports = {
           error: 'The login information dose not match an existing user'
         })
       }
-      // Handel password validation
-      const isPassValid = await user.comparePssword(password)
+      // Handle password validation
+      const isPassValid = await user.comparePassword(password)
       if (!isPassValid) {
         return res.status(403).send({
           error: 'The password was incorect'
@@ -54,6 +59,7 @@ module.exports = {
         token: jwtSignUser(userJson)
       })
     } catch (err) {
+      console.log(err)
       // Generic error handling
       res.status(500).send({
         error: 'there was an error in the login process'

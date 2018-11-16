@@ -1,6 +1,8 @@
 // Setup our user data model for sequelize
 const Promise = require('bluebird') // Promise library
-const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs')) // Crypto package
+// Import our Crypto package and use Bluebirds promisifyAll...
+// to craete Async versions of all the methods. this lets us chain .thens
+const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
 
 // Hash callback function so the password is not stored in plain text
 function hashPassword (user, options) {
@@ -11,7 +13,7 @@ function hashPassword (user, options) {
   }
   // Use bcrypt to hash and replace the password
   return bcrypt
-    .genSaltSync(SALT_FACTOR)
+    .genSaltAsync(SALT_FACTOR)
     .then(salt => bcrypt.hashAsync(user.password, salt, null))
     .then(hash => {
       user.setDataValue('password', hash)
@@ -30,14 +32,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       hooks: {
-        beforeCreate: hashPassword,
-        beforeUpdate: hashPassword,
+        // beforeCreate: hashPassword,
+        // beforeUpdate: hashPassword,
         beforeSave: hashPassword
       }
     }
   )
-  // Check password
+  // Check password function accesable for all User objects
   User.prototype.comparePassword = function (password) {
+    console.log(password, this.password)
     return bcrypt.compareAsync(password, this.password)
   }; // eslint-disable-line
 

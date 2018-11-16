@@ -1,44 +1,59 @@
 <template>
   <div class="home">
-    <div id="content">
-      <ItemQuantityGen @update-Drops="updateDrops" class="search-col"/>
-      <div class="random-drops-display">
-        <h3>Rolled Drops</h3>
-        <div class="drop-group" id="common-group">
-          <span class="drop-amount">{{dropsList.common}}</span>
-          <span class="drop-label">Common </span>
-        </div>
-        <div class="drop-group" id="uncommon-group">
-          <span class="drop-amount">{{dropsList.uncommon}}</span>
-          <span class="drop-label">Uncommon </span>
-        </div>
-        <div class="drop-group" id="rare-group">
-          <span class="drop-amount">{{dropsList.rare}}</span>
-          <span class="drop-label">Rare </span>
-        </div>
-        <div class="drop-group" id="vrare-group">
-          <span class="drop-amount">{{dropsList.vRare}}</span>
-          <span class="drop-label">Very Rare </span>
-        </div>
-        <div class="drop-group" id="leg-group">
-          <span class="drop-amount">{{dropsList.legendary}}</span>
-          <span class="drop-label">Legendary </span>
-        </div>
-        <div class="drop-group" id="art-group">
-          <span class="drop-amount">{{dropsList.artifact}}</span>
-          <span class="drop-label">Artifact </span>
-        </div>
-        <ItemTypeGen @handle-item-search="searchSingle" class="search-list"/>
-        <div class="utility-options">
-          <label>Use Offical Content Only</label>
-          <input type="checkbox" v-model="officalContent">
-          <button v-on:click="clearHandler" class="clear-button">Clear Item List</button>
-        </div>
-      </div>
+    <v-container fluid grid-list-lg id="content">
+      <v-layout align-start justify-center row>
+        <v-flex d-flex xs12 sm6 md4>
+          <ItemQuantityGen @update-Drops="updateDrops"/>
+        </v-flex>
+        <v-flex d-flex x12 sm6 md8>
+          <v-layout row wrap>
+            <v-flex d-flex>
+              <panel title="Rolled Drops" class="random-drops-display">
+                <v-container>
+                  <v-layout row wrap>
+                    <v-flex xs2 class="text-xs-center drop-group" id="common-group">
+                      <span class="drop-amount">{{dropsList.common}}</span>
+                      <span class="drop-label">Common </span>
+                    </v-flex>
+                    <v-flex xs2 class="text-xs-center drop-group" id="uncommon-group">
+                      <span class="drop-amount">{{dropsList.uncommon}}</span>
+                      <span class="drop-label">Uncommon </span>
+                    </v-flex>
+                    <v-flex xs2 class="text-xs-center drop-group" id="rare-group">
+                      <span class="drop-amount">{{dropsList.rare}}</span>
+                      <span class="drop-label">Rare </span>
+                    </v-flex>
+                    <v-flex xs2 class="text-xs-center drop-group" id="vrare-group">
+                      <span class="drop-amount">{{dropsList.vRare}}</span>
+                      <span class="drop-label">Very Rare </span>
+                    </v-flex>
+                    <v-flex xs2 class="text-xs-center drop-group" id="leg-group">
+                      <span class="drop-amount">{{dropsList.legendary}}</span>
+                      <span class="drop-label">Legendary </span>
+                    </v-flex>
+                    <v-flex xs2 class="text-xs-center drop-group" id="art-group">
+                      <span class="drop-amount">{{dropsList.artifact}}</span>
+                      <span class="drop-label">Artifact </span>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </panel>
+            </v-flex>
+            <v-flex d-flex>
+              <v-layout row wrap>
+                <v-flex d-flex>
+                  <ItemTypeGen @handle-item-search="searchSingle" class="search-list"/>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+          </v-layout>
+        </v-flex>
+      </v-layout>
       <div class="item-col">
-        <ItemCard v-for="item in items" :key="item.id" :item="item"/>
-      </div>
-    </div>
+          <v-btn v-on:click="clearHandler" class="clear-button">Clear Item List</v-btn>
+          <ItemCard v-for="item in items" :key="item.id" :item="item"/>
+        </div>
+    </v-container>
   </div>
 </template>
 
@@ -47,12 +62,14 @@
 import ItemCard from "@/components/ItemCard.vue";
 import ItemQuantityGen from "@/components/ItemQuantityGen.vue";
 import ItemTypeGen from "@/components/ItemTypeGen.vue";
+import Panel from "@/components/Panel";
 
 export default {
   components: {
     ItemCard,
     ItemQuantityGen,
-    ItemTypeGen
+    ItemTypeGen,
+    Panel
   },
   computed: {
     searchLines() {
@@ -85,60 +102,9 @@ export default {
 
 <style scoped>
 #content {
-  margin: auto;
-  padding-left: 5%;
-  padding-right: 5%;
-  width: 960px;
   background-color: #ffffffcc;
-  display: grid;
-  grid-template-columns: 40% 1fr;
-  grid-column-gap: 16px;
-  grid-row-gap: 10px;
-}
-.search-col {
-  grid-column: 1/2;
-}
-.item-col {
-  grid-column: 1/3;
-}
-.search-list {
-  grid-column: 2/3;
-  margin-top: 18px;
-}
-.drop-group {
-  display: inline-block;
-  margin: 5px;
-  padding: 2px;
-}
-.random-drops-display {
-  text-align: center;
 }
 .drop-amount {
   display: block;
-}
-.utility-options {
-  margin-top: 20px;
-}
-.utility-options > input {
-  margin-right: 20px;
-}
-#uncommon-group {
-  background-color: #d1efd0;
-}
-#rare-group {
-  background-color: #b8d1f9;
-}
-#vrare-group {
-  background-color: #d89ae0;
-}
-#leg-group {
-  background-color: #e0cc91;
-}
-#art-group {
-  background-color: #e09191;
-}
-#banenrImg {
-  position: absolute;
-  z-index: -1;
 }
 </style>

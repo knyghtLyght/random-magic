@@ -1,39 +1,36 @@
 <template>
-  <v-layout>
-    <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
-        <v-form ref="form" v-model="valid" class="pl-4 pr-4 pt-2 pb-2">
-          <v-text-field 
-            v-model="userObj.email"
-            label="Email"
-            :rules="emailRules"
-            required
-          ></v-text-field>
-          <v-text-field 
-            v-model="userObj.password"
-            label="Password"
-            :rules="passRules"
-            :counter="32"
-            :append-icon="passMask ? 'visibility_off' : 'visibility'"
-            :type="passMask ? 'text' : 'password'"
-            @click:append="passMask = !passMask"
-            required
-          ></v-text-field>
-          <div class="error" v-html="error"></div>
-          <v-btn class="log-btn" @click="login">Login</v-btn>
-          <v-btn class="reg-btn" @click="register">Register</v-btn>
-        </v-form>
-      </div>
-    </v-flex>
-  </v-layout>
+  <panel title="Register">
+    <v-form ref="form" v-model="valid" class="pl-4 pr-4 pt-2 pb-2">
+      <v-text-field 
+        v-model="userObj.email"
+        label="Email"
+        :rules="emailRules"
+        required
+      ></v-text-field>
+      <v-text-field 
+        v-model="userObj.password"
+        label="Password"
+        :rules="passRules"
+        :counter="32"
+        :append-icon="passMask ? 'visibility_off' : 'visibility'"
+        :type="passMask ? 'text' : 'password'"
+        @click:append="passMask = !passMask"
+        required
+      ></v-text-field>
+      <div class="error" v-html="error"></div>
+      <v-btn class="log-btn" @click="login">Login</v-btn>
+      <v-btn class="reg-btn" @click="register">Register</v-btn>
+    </v-form>
+  </panel>
 </template>
 
 <script>
 import AuthenticationService from "@/services/AuthenticationService.js";
+import Panel from "@/components/Panel";
 export default {
+  components: {
+    Panel
+  },
   data() {
     return {
       valid: true,
@@ -56,27 +53,33 @@ export default {
   methods: {
     async register() {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.userObj.email,
           password: this.userObj.password
         });
+        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setUser", response.data.user);
       } catch (error) {
         this.error = error.response.data.error;
       }
       if (!this.error) {
+        this.$router.push("/");
         this.freshUserObj();
       }
     },
     async login() {
       try {
-        await AuthenticationService.login({
+        const response = await AuthenticationService.login({
           email: this.userObj.email,
           password: this.userObj.password
         });
+        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setUser", response.data.user);
       } catch (error) {
         this.error = error.response.data.error;
       }
       if (!this.error) {
+        this.$router.push("/");
         this.freshUserObj();
       }
     },

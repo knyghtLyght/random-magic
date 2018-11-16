@@ -4,7 +4,11 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  strict: true, // State can only be modified by mutations
   state: {
+    token: null,
+    user: null,
+    isUserLoggedIn: false,
     searchState: {
       partyLevel: 0,
       none: 0,
@@ -88,6 +92,13 @@ export default new Vuex.Store({
     },
     CLEAR_ITEMS(state) {
       state.itemsState = [];
+    },
+    SET_TOKEN(state, token) {
+      state.token = token;
+      state.isUserLoggedIn = !!token;
+    },
+    SET_USER(state, user) {
+      state.user = user;
     }
   },
   actions: {
@@ -103,6 +114,12 @@ export default new Vuex.Store({
     },
     clearItems({ commit }) {
       return commit("CLEAR_ITEMS");
+    },
+    setToken({ commit }, token) {
+      return commit("SET_TOKEN", token);
+    },
+    setUser({ commit }, user) {
+      return commit("SET_USER", user);
     }
   },
   getters: {

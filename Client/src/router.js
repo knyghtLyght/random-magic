@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import ItemShow from "./views/ItemShow.vue";
 import Register from "./views/Register.vue";
+import UserProfile from "./views/UserProfile.vue";
 
 Vue.use(Router);
 
@@ -19,6 +20,11 @@ export default new Router({
       path: "/register",
       name: "register",
       component: Register
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: UserProfile
     },
     {
       path: "/item/:id",

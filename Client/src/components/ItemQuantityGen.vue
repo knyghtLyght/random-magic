@@ -1,33 +1,71 @@
 <template>
-  <div class="quantity-card">
-    <h3>Drops by Monster Class</h3>
-    <v-form @submit.prevent="generateItemTypes" class="quantity-search">
-      <label>Party Level</label>
-      <input v-model="quantityList.partyLevel" type="number" step="1" style="width:35px">
-      <label>Minions</label>
-      <input v-model="monsterList.minion" type="number" step="1" style="width:35px">
-      <label>Elites</label>
-      <input v-model="monsterList.elite" type="number" step="1" style="width:35px">
-      <label>Champions</label>
-      <input v-model="monsterList.champ" type="number" step="1" style="width:35px">
-      <label>Bosses</label>
-      <input v-model="monsterList.boss" type="number" step="1" style="width:35px">
-      <label>Get Number of Drops</label>
-      <input v-model="dropType" type="radio" name="dropType" value="drops" class="drops-radio">
-      <label>Get Random items</label>
-      <input v-model="dropType" type="radio" name="dropType" value="items" class="random-radio">
-      <input type="submit" value="Submit" class="search-button">
+  <panel title="Drops by Monster Class">
+    <v-form class="quantity-search">
+      <v-text-field 
+        label="Party Level"
+        v-model="quantityList.partyLevel"
+        type="number"
+        box
+      ></v-text-field>
+      <v-text-field 
+        label="Minions"
+        v-model="monsterList.minion"
+        type="number"
+        box
+      ></v-text-field>
+      <v-text-field 
+        label="Elites"
+        v-model="monsterList.elite"
+        type="number"
+        box
+      ></v-text-field>
+      <v-text-field 
+        label="Champions"
+        v-model="monsterList.champ"
+        type="number"
+        box
+      ></v-text-field>
+      <v-text-field 
+        label="Bosses"
+        v-model="monsterList.boss"
+        type="number"
+        box
+      ></v-text-field>
+      <v-select
+        :items="searchTypeOptions"
+        v-model="searchType"
+      ></v-select>
+      <v-layout row wrap>
+        <v-flex xs6>
+          <v-btn @click="generateItemTypes">Roll Drops</v-btn>
+        </v-flex>
+        <v-flex xs6>
+          <v-checkbox
+            v-model="officalOnly"
+            label="Offical content only"
+            color="success"
+            value="true"
+            hide-details
+          ></v-checkbox>
+        </v-flex>
+      </v-layout>
     </v-form>
-  </div>
+  </panel>
 </template>
 
 <script>
+import Panel from "@/components/Panel";
 export default {
+  components: {
+    Panel
+  },
   data() {
     return {
       quantityList: this.createFreshQuantityList(),
       monsterList: this.createFreshMonsterList(),
-      dropType: "items"
+      officalOnly: true,
+      searchTypeOptions: ["Get drops only", "Get drops and roll itmes"],
+      searchType: "Get drops only"
     };
   },
   methods: {
@@ -84,7 +122,7 @@ export default {
         console.log("boss rare check called " + h);
         returnObj[this.generateRarity(rarityList, bossWeight)]++;
       }
-      this.$emit("update-Drops", returnObj, this.dropType);
+      this.$emit("update-Drops", returnObj, this.searchType);
       this.quantityList = this.createFreshQuantityList();
       // this.$store.dispatch("updateSearch", this.quantityList);
       // this.$store.dispatch("updateMonster", this.monsterList);
@@ -108,23 +146,4 @@ export default {
 </script>
 
 <style scoped>
-form {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-column-gap: 16px;
-  grid-row-gap: 5px;
-}
-label,
-button {
-  grid-column: 1/2;
-}
-input {
-  grid-column: 2/3;
-}
-.search-button {
-  grid-column: 1/2;
-}
-.random-button {
-  grid-column: 2/3;
-}
 </style>
