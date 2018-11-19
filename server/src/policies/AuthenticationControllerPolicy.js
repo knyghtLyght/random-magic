@@ -5,7 +5,8 @@ module.exports = {
   register (req, res, next) {
     const schema = {
       email: Joi.string().email(),
-      password: Joi.string().regex(new RegExp('^[a-zA-Z0-9]{8,32}$'))
+      password: Joi.string().regex(new RegExp('^[a-zA-Z0-9]{8,32}$')),
+      role: Joi.string()
     }
     const { error, value } = Joi.validate(req.body, schema); // eslint-disable-line
     // Error and validation hadneling

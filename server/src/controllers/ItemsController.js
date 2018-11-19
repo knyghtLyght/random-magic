@@ -20,5 +20,12 @@ module.exports = {
         error: 'An error occered creating your item'
       })
     }
+  },
+  async seedItem (item) {
+    try {
+      await Item.create(item)
+    } catch (err) {
+      console.log(err)
+    }
   }
 }

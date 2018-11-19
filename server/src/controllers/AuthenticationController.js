@@ -65,5 +65,12 @@ module.exports = {
         error: 'there was an error in the login process'
       })
     }
+  },
+  async seedUser (user) {
+    try {
+      await User.create(user)
+    } catch (err) {
+      console.log(err)
+    }
   }
 }

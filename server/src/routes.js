@@ -18,8 +18,8 @@ module.exports = app => {
   )
   // User login endpoint
   app.post('/login', AuthenticationController.login)
-
+  // Get all items in the db
   app.get('/items', ItemsController.index)
-
+  // Add an item to the db
   app.post('/items', ItemsController.post)
 }; // eslint-disable-line

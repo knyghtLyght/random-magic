@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "level": 1,
+      "name": "",
+      "class": "",
+      "base": "",
+      "rarity": "",
+      "effect": {},
+      "flavor": ""
+    },
+    {
+      "level": 3,
+      "name": "Adamantine Armor",
+      "class": "armor",
+      "base": "Chain Shirt",
+      "rarity": "uncommon",
+      "effect": {},
+      "flavor": "This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it critical hit against you becomes a normal hit. - DMG p150"
+    },
+    {
+      "level": 3,
+      "name": "Adamantine Armor",
+      "class": "armor",
+      "base": "Scale Mail",
+      "rarity": "uncommon",
+      "effect": {},
+      "flavor": "This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it critical hit against you becomes a normal hit. - DMG p150"
+    },
+    {
+      "level": 1,
+      "name": "Alchemy Jug",
+      "class": "Wondrous item",
+      "base": "Wondrous item,",
+      "rarity": "uncommon",
+      "effect": {},
+      "flavor": "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. Sloshing sounds can be heard from within the jug when it is shaken, even if the jug is empty. - DMG p150"
+    },
+    {
+      "level": 2,
+      "name": "Ammunition +1",
+      "class": "weapon",
+      "base": "",
+      "rarity": "uncommon",
+      "effect": {},
+      "flavor": "You have a bonus to attack and damage rolls made with this piece of magic ammunition. The bonus is determined by the rarity of the ammunition. Once it hit a target, the ammunition is no longer magical. -DMG p150"
+    },
+    {
+      "level": 6,
+      "name": "Amulet of Health",
+      "class": "Wondrous item",
+      "base": "Wondrous item",
+      "rarity": "rare",
+      "effect": {},
+      "flavor": "Your Constitution score is 19 while you wear this amulet. It has no effect on you if your Constitution is already 19 or higher. - DMG p150"
+    },
+    {
+      "level": 1,
+      "name": "Amulet of Proof Against Detection and Location",
+      "class": "Wondrous item",
+      "base": "Wondrous item",
+      "rarity": "uncommon",
+      "effect": {},
+      "flavor": "While wearing this amulet, you are hidden from divination magic. You can't be targeted by such magic or perceived through magical scrying sensors. - DMG p150"
+    },
+    {
+      "level": 1,
+      "name": "Amulet of the Planes",
+      "class": "Wondrous item",
+      "base": "Wondrous item",
+      "rarity": "very rare",
+      "effect": {},
+      "flavor": "'A single step to cross an Ocean. Just don't ask if it's the ocean you wanted to cross' - DMG p150"
+    }
+  ]
+}
