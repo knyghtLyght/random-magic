@@ -1,8 +1,8 @@
 <template>
-  <v-container fluid grid-list-lg>
+  <v-container fluid grid-list-lg id="content">
     <v-layout column>
       <panel title="Create New Item">
-        <ItemModifyForm :item="newItem"/>
+        <ItemModifyForm/>
       </panel>
       <panel>
         <v-data-table
@@ -34,7 +34,6 @@ export default {
   },
   data() {
     return {
-      newItem: this.createFreshItemObj(),
       items: [],
       headers: [
         {
@@ -68,4 +67,7 @@ export default {
 </script>
 
 <style scoped>
+#content {
+  width: 1200px;
+}
 </style>

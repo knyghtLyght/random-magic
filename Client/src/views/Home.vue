@@ -49,10 +49,10 @@
           </v-layout>
         </v-flex>
       </v-layout>
-      <div class="item-col">
+      <panel title="Item List" class="item-col">
           <v-btn v-on:click="clearHandler" class="clear-button">Clear Item List</v-btn>
           <ItemCard v-for="item in items" :key="item.id" :item="item"/>
-        </div>
+        </panel>
     </v-container>
   </div>
 </template>
@@ -102,9 +102,13 @@ export default {
 
 <style scoped>
 #content {
-  background-color: #ffffffcc;
+  background-color: #504c56;
 }
 .drop-amount {
   display: block;
+}
+.home {
+  width: 1300px;
+  margin: auto;
 }
 </style>

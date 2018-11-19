@@ -28,7 +28,7 @@
         <v-select
           :items="weaponOptions"
           label="Item Type"
-          v-model="item.class"
+          v-model="item.base"
         ></v-select>
       </v-flex>
       <v-flex v-if="item.class === 'Armor'">
@@ -64,11 +64,15 @@
 
 <script>
 export default {
-  props: {
-    item: Object
-  },
   data() {
     return {
+      item: {
+        level: null,
+        name: null,
+        class: null,
+        base: null,
+        flavor: null
+      },
       rarityOptions: [
         "Common",
         "Uncommon",

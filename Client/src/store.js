@@ -9,6 +9,7 @@ export default new Vuex.Store({
     token: null,
     user: null,
     isUserLoggedIn: false,
+    userRole: "",
     searchState: {
       partyLevel: 0,
       none: 0,
@@ -25,60 +26,7 @@ export default new Vuex.Store({
       champ: 0,
       boss: 0
     },
-    itemsState: [
-      {
-        id: 1,
-        level: 1,
-        name: "testname",
-        class: "testclass",
-        base: "sword",
-        rarity: "common",
-        effects: [
-          {
-            id: 1,
-            name: "testeffectnameOne",
-            effect: "testeffectOne"
-          },
-          {
-            id: 2,
-            name: "testeffectnameTwo",
-            effect: "testeffectTwo"
-          },
-          {
-            id: 3,
-            name: "testeffectnameThree",
-            effect: "testeffectThree"
-          }
-        ],
-        flavor: "testflavorOne"
-      },
-      {
-        id: 2,
-        level: 2,
-        name: "testname",
-        class: "testclass",
-        base: "sword",
-        rarity: "common",
-        effects: [
-          {
-            id: 1,
-            name: "testeffectnameOne",
-            effect: "testeffectOne"
-          },
-          {
-            id: 2,
-            name: "testeffectnameTwo",
-            effect: "testeffectTwo"
-          },
-          {
-            id: 3,
-            name: "testeffectnameThree",
-            effect: "testeffectThree"
-          }
-        ],
-        flavor: "testflavorOne"
-      }
-    ]
+    itemsState: []
   },
   mutations: {
     UPDATE_SEARCH(state, searchObj) {
@@ -99,6 +47,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
+      user ? (state.userRole = user.role) : (state.userRole = "");
     }
   },
   actions: {
