@@ -63,6 +63,7 @@ import ItemCard from "@/components/ItemCard.vue";
 import ItemQuantityGen from "@/components/ItemQuantityGen.vue";
 import ItemTypeGen from "@/components/ItemTypeGen.vue";
 import Panel from "@/components/Panel";
+import ItemService from "@/services/ItemService";
 
 export default {
   components: {
@@ -88,9 +89,11 @@ export default {
       console.log(dropType);
       this.dropsList = updateObj;
     },
-    searchSingle(searchObj) {
+    async searchSingle(searchObj) {
       console.log(searchObj);
-      return { item: searchObj, officalContentFlag: this.officalContent };
+      if (this.officalContent) {
+        this.$store.dispatch(await ItemService.getOfficalItem(searchObj));
+      }
     },
     clearHandler() {
       this.$store.dispatch("clearItems");

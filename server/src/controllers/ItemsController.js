@@ -11,6 +11,23 @@ module.exports = {
       })
     }
   },
+  randItemGen () {
+    // Item gen
+  },
+  async singleOffical (req, res) {
+    try {
+      const items = await Item.findOne({
+        where: {
+          // search query
+        }
+      })
+      res.send(items)
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error occered fetching items'
+      })
+    }
+  },
   async post (req, res) {
     try {
       const item = await Item.create(req.body)

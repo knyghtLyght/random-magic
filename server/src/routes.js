@@ -22,4 +22,6 @@ module.exports = app => {
   app.get('/items', ItemsController.index)
   // Add an item to the db
   app.post('/items', ItemsController.post)
+
+  app.get('/items', ItemsController.singleOffical)
 }; // eslint-disable-line

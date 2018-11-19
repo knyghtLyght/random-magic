@@ -6,5 +6,8 @@ export default {
   },
   indexEffects() {
     return Api().post("items");
+  },
+  getOfficalItem(searchObj) {
+    return Api().get("Item", searchObj);
   }
 };

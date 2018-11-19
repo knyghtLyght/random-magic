@@ -1,7 +1,7 @@
 <template>
   <panel title="Roll Single Item" class="item-search-group">
     <v-container>
-      <v-layout row align-center>
+      <v-layout row align-start>
         <v-flex>
           <v-text-field 
             label="Item Level"
@@ -11,13 +11,40 @@
           ></v-text-field>
         </v-flex>
         <v-flex>
-          <v-select
-            :items="typeOptions"
-            label="Item Type"
-            v-model="searchObj.itemType"
-            style="width:120px"
-            box
-          ></v-select>
+          <v-layout column align-start>
+            <V-flex>
+              <v-select
+                :items="typeOptions"
+                label="Item Type"
+                v-model="searchObj.itemType"
+                box
+              ></v-select>
+            </V-flex>
+            <V-flex v-if="searchObj.itemType === '-Melee'">
+              <v-select
+                :items="meleeWeaponOptions"
+                label="Weapon Type"
+                v-model="searchObj.itemBase"
+                box
+              ></v-select>
+            </V-flex>
+            <V-flex v-if="searchObj.itemType === '-Ranged'">
+              <v-select
+                :items="meleeWeaponOptions"
+                label="Weapon Type"
+                v-model="searchObj.itemBase"
+                box
+              ></v-select>
+            </V-flex>
+            <V-flex v-if="searchObj.itemType === '-Body'">
+              <v-select
+                :items="armorOptions"
+                label="Armor Type"
+                v-model="searchObj.itemBase"
+                box
+              ></v-select>
+            </V-flex>
+          </v-layout>
         </v-flex>
         <v-flex>
           <v-select
@@ -85,7 +112,70 @@ export default {
         "Weapon",
         "-Melee",
         "-Ranged",
-        "Trinket"
+        "Wondrous item"
+      ],
+      meleeWeaponOptions: [
+        "Any",
+        "Club",
+        "Dagger",
+        "Greatclub",
+        "Handaxe",
+        "Light Hammer",
+        "Mace",
+        "Quarterstaff",
+        "Sickle",
+        "Spear",
+        "Battleaxe",
+        "Flail",
+        "Glave",
+        "Greataxe",
+        "Greatsword",
+        "Halberd",
+        "Lance",
+        "Longsword",
+        "Maul",
+        "Morningstar",
+        "Pike",
+        "Rapier",
+        "Scimitar",
+        "Shortsword",
+        "Trident",
+        "War Pick",
+        "Warhammer",
+        "Whip",
+        "Net"
+      ],
+      rangedWeaponOptions: [
+        "Any",
+        "Dagger",
+        "Handaxe",
+        "javalin",
+        "light Hammer",
+        "Spear",
+        "Light Crossbow",
+        "Dart",
+        "Shortbow",
+        "Sling",
+        "Blowgun",
+        "Hand Crossbow",
+        "Heavy Crossbow",
+        "Longbow"
+      ],
+      armorOptions: [
+        "Any",
+        "Padded",
+        "Leather",
+        "Studded",
+        "Hide",
+        "Chain Shirt",
+        "Scale Mail",
+        "Breastplate",
+        "Half plate",
+        "Ring Mail",
+        "Chain Mail",
+        "Splint",
+        "Plate",
+        "Shield"
       ]
     };
   },
@@ -94,6 +184,7 @@ export default {
       return {
         itemLevel: 1,
         itemType: "Any",
+        itemBase: "",
         itemRarity: "Any"
       };
     },
