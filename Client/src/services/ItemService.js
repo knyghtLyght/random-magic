@@ -8,6 +8,7 @@ export default {
     return Api().post("items");
   },
   getOfficalItem(searchObj) {
-    return Api().get("Item", searchObj);
+    console.log(searchObj);
+    return Api().post("Item", searchObj);
   }
 };

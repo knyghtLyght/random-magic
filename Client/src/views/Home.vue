@@ -92,7 +92,9 @@ export default {
     async searchSingle(searchObj) {
       console.log(searchObj);
       if (this.officalContent) {
-        this.$store.dispatch(await ItemService.getOfficalItem(searchObj));
+        const itemObj = await ItemService.getOfficalItem(searchObj);
+        console.log(itemObj);
+        this.$store.dispatch("updateItems", itemObj.data);
       }
     },
     clearHandler() {

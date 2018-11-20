@@ -23,5 +23,5 @@ module.exports = app => {
   // Add an item to the db
   app.post('/items', ItemsController.post)
 
-  app.get('/items', ItemsController.singleOffical)
+  app.post('/item', ItemsController.singleOffical)
 }; // eslint-disable-line

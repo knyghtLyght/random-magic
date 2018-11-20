@@ -184,7 +184,7 @@ export default {
       return {
         itemLevel: 1,
         itemType: "Any",
-        itemBase: "",
+        itemBase: "Any",
         itemRarity: "Any"
       };
     },
