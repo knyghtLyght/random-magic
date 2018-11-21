@@ -182,7 +182,7 @@ export default {
   methods: {
     createFreshSearchObj() {
       return {
-        itemLevel: 1,
+        itemLevel: 0,
         itemType: "Any",
         itemBase: "Any",
         itemRarity: "Any"

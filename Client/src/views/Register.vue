@@ -19,7 +19,7 @@
             @click:append="passMask = !passMask"
             required
           ></v-text-field>
-          <div class="error" v-html="error"></div>
+          <div class="danger-alert" v-html="error"></div>
           <v-btn class="log-btn" @click="login">Login</v-btn>
           <v-btn class="reg-btn" @click="register">Register</v-btn>
         </v-form>

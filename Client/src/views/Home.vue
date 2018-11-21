@@ -72,11 +72,6 @@ export default {
     ItemTypeGen,
     Panel
   },
-  computed: {
-    searchLines() {
-      return this.$store.getters.rolledDrops;
-    }
-  },
   data() {
     return {
       items: this.$store.state.itemsState,
@@ -92,9 +87,9 @@ export default {
     async searchSingle(searchObj) {
       console.log(searchObj);
       if (this.officalContent) {
-        const itemObj = await ItemService.getOfficalItem(searchObj);
+        const itemObj = (await ItemService.getOfficalItem(searchObj)).data;
         console.log(itemObj);
-        this.$store.dispatch("updateItems", itemObj.data);
+        this.$store.dispatch("updateItems", itemObj);
       }
     },
     clearHandler() {
