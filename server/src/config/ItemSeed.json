@@ -71,6 +71,15 @@
       "rarity": "very rare",
       "effect": {},
       "flavor": "'A single step to cross an Ocean. Just don't ask if it's the ocean you wanted to cross' - DMG p150"
+    },
+    {
+      "level": 1,
+      "name": "Shortbow test",
+      "class": "Weapon",
+      "base": "ShortBow",
+      "rarity": "common",
+      "effect": {},
+      "flavor": "association testing item"
     }
   ]
 }

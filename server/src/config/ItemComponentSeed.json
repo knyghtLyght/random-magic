@@ -1,0 +1,183 @@
+{
+  "WeaponClasses": [
+    {
+      "name": "Melee"
+    },
+    {
+      "name": "Ranged"
+    }
+  ],
+  "ItemClasses": [
+    {
+      "name": "Weapon"
+    },
+    {
+      "name": "Armor"
+    },
+    {
+      "name": "Wondrous item"
+    }
+  ],
+  "WeaponTypes": [
+    {
+      "name": "Club"
+    },
+    {
+      "name": "Dagger"
+    },
+    {
+      "name": "Greatclub"
+    },
+    {
+      "name": "Handaxe"
+    },
+    {
+      "name": "Light Hammer"
+    },
+    {
+      "name": "Mace"
+    },
+    {
+      "name": "Quarterstaff"
+    },
+    {
+      "name": "Sickle"
+    },
+    {
+      "name": "Spear"
+    },
+    {
+      "name": "Battleaxe"
+    },
+    {
+      "name": "Flail"
+    },
+    {
+      "name": "Glave"
+    },
+    {
+      "name": "Greataxe"
+    },
+    {
+      "name": "Greatsword"
+    },
+    {
+      "name": "Halberd"
+    },
+    {
+      "name": "Lance"
+    },
+    {
+      "name": "Longsword"
+    },
+    {
+      "name": "Maul"
+    },
+    {
+      "name": "Morningstar"
+    },
+    {
+      "name": "Pike"
+    },
+    {
+      "name": "Rapier"
+    },
+    {
+      "name": "Scimitar"
+    },
+    {
+      "name": "Shortsword"
+    },
+    {
+      "name": "Trident"
+    },
+    {
+      "name": "War Pick"
+    },
+    {
+      "name": "Warhammer"
+    },
+    {
+      "name": "Whip"
+    },
+    {
+      "name": "Net"
+    },
+    {
+      "name": "javalin"
+    },
+    {
+      "name": "Light Crossbow"
+    },
+    {
+      "name": "Dart"
+    },
+    {
+      "name": "Shortbow"
+    },
+    {
+      "name": "Sling"
+    },
+    {
+      "name": "Blowgun"
+    },
+    {
+      "name": "Hand Crossbow"
+    },
+    {
+      "name": "Heavy Crossbow"
+    },
+    {
+      "name": "Longbow"
+    }
+  ],
+  "ArmorClasses": [
+    {
+      "name": "Padded"
+    },
+    {
+      "name": "Leather"
+    },
+    {
+      "name": "Studded"
+    },
+    {
+      "name": "Hide"
+    },
+    {
+      "name": "Chain Shirt"
+    },
+    {
+      "name": "Scale Mail"
+    },
+    {
+      "name": "Breastplate"
+    },
+    {
+      "name": "Half plate"
+    },
+    {
+      "name": "Ring Mail"
+    },
+    {
+      "name": "Chain Mail"
+    },
+    {
+      "name": "Splint"
+    },
+    {
+      "name": "Plate"
+    },
+    {
+      "name": "Shield"
+    }
+  ],
+  "Tags": [
+    {
+      "name": "Ranged"
+    },
+    {
+      "name": "Melee"
+    }
+  ]
+}

@@ -13,7 +13,9 @@ function querySetup (itemLevel, itemType, itemBase, itemRarity) {
 module.exports = {
   async index (req, res) {
     try {
-      const items = await Item.findAll()
+      const items = await Item.findAll({
+        include: [{ all: true }]
+      })
       res.send(items)
     } catch (err) {
       res.status(500).send({

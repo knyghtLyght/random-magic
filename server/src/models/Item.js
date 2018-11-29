@@ -9,5 +9,12 @@ module.exports = (sequelize, DataTypes) => {
     flavor: DataTypes.TEXT
   })
 
+  Item.associate = function (models) {
+    Item.hasMany(models.WeaponClass)
+    Item.hasMany(models.Tag)
+    Item.belongsToMany(models.ItemClass, { through: 'Item_Class' })
+    Item.belongsToMany(models.WeaponClass, { through: 'Item_WeaponClass' })
+  }; // eslint-disable-line
+
   return Item
 }; // eslint-disable-line
