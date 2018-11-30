@@ -1,5 +1,5 @@
 {
-  "WeaponClasses": [
+  "weaponClasses": [
     {
       "name": "Melee"
     },
@@ -7,7 +7,7 @@
       "name": "Ranged"
     }
   ],
-  "ItemClasses": [
+  "itemClasses": [
     {
       "name": "Weapon"
     },
@@ -18,7 +18,7 @@
       "name": "Wondrous item"
     }
   ],
-  "WeaponTypes": [
+  "weaponTypes": [
     {
       "name": "Club"
     },
@@ -131,7 +131,7 @@
       "name": "Longbow"
     }
   ],
-  "ArmorClasses": [
+  "armorClasses": [
     {
       "name": "Padded"
     },
@@ -172,7 +172,7 @@
       "name": "Shield"
     }
   ],
-  "Tags": [
+  "tags": [
     {
       "name": "Ranged"
     },

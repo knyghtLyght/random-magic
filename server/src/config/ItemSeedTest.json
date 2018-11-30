@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "baseItem": {
+        "level": 1,
+        "name": "",
+        "class": "",
+        "base": "",
+        "rarity": "",
+        "effect": {},
+        "flavor": "",
+        "tags": [{ "name": "Ranged" }, { "name": "Melee" }]
+      },
+      "association": {
+        "include": ["Tag"]
+      }
+    }
+  ]
+}

@@ -70,9 +70,9 @@ module.exports = {
       })
     }
   },
-  async seedItem (item) {
+  async seedItem (item, association) {
     try {
-      await Item.create(item)
+      await Item.create(item, association)
     } catch (err) {
       console.log(err)
     }

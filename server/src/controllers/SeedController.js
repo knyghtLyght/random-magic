@@ -1,7 +1,9 @@
 const AuthenticationController = require('./AuthenticationController')
 const ItemsController = require('./ItemsController')
+const ItemComponentController = require('./ItemComponentController')
 const UserSeed = require('../config/UserSeed')
-const ItemSeed = require('../config/ItemSeed')
+const ItemSeed = require('../config/ItemSeedTest')
+const ItemComponentSeed = require('../config/ItemComponentSeed')
 
 module.exports = {
   seedUsers () {
@@ -12,8 +14,13 @@ module.exports = {
   },
   seedItems () {
     ItemSeed.items.forEach(element => {
-      ItemsController.seedItem(element)
+      ItemsController.seedItem(element.baseItem, element.association)
     })
     console.log('item seed complete')
+  },
+  seedTags () {
+    ItemComponentSeed.tags.forEach(element => {
+      ItemComponentController.seedTags(element)
+    })
   }
 }

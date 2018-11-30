@@ -21,6 +21,7 @@ sequelize.sync({ force: true }).then(() => {
   app.listen(config.port)
   // seed the db
   SeedController.seedUsers()
+  SeedController.seedTags()
   SeedController.seedItems()
   console.log(`Server started on port ${config.port}`)
 })

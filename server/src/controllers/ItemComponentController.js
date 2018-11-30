@@ -3,9 +3,10 @@ const { WeaponType } = require('../models')
 const { ArmorClass } = require('../models')
 const { ArmorType } = require('../models')
 const { ItemClass } = require('../models')
+const { Tag } = require('../models')
 
 module.exports = {
-  async SeedWeaponClass (item) {
+  async seedWeaponClass (item) {
     try {
       await WeaponClass.create(item)
     } catch (err) {
@@ -13,7 +14,7 @@ module.exports = {
     }
   },
 
-  async SeedWeaponType (item) {
+  async seedWeaponType (item) {
     try {
       await WeaponType.create(item)
     } catch (err) {
@@ -21,7 +22,7 @@ module.exports = {
     }
   },
 
-  async SeedArmorClass (item) {
+  async seedArmorClass (item) {
     try {
       await ArmorClass.create(item)
     } catch (err) {
@@ -29,7 +30,7 @@ module.exports = {
     }
   },
 
-  async SeedArmorType (item) {
+  async seedArmorType (item) {
     try {
       await ArmorType.create(item)
     } catch (err) {
@@ -37,9 +38,17 @@ module.exports = {
     }
   },
 
-  async SeedItemClass (item) {
+  async seedItemClass (item) {
     try {
       await ItemClass.create(item)
+    } catch (err) {
+      console.log(err)
+    }
+  },
+
+  async seedTags (item) {
+    try {
+      await Tag.create(item)
     } catch (err) {
       console.log(err)
     }
