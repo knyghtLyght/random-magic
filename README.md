@@ -66,11 +66,14 @@ If you want to use an actual SQL database instead of Sqlite be sure to update th
 | Volleyball     |
 
 ### Compiles and hot-reloads for development
-
+Client
 ```
 npm run serve
 ```
-
+Server
+```
+npm start
+```
 ### Compiles and minifies for production
 
 ```
