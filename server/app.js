@@ -24,7 +24,8 @@ app.use('/user', userRouter);
 //Start our server
 const server = app.listen(config.port, () => {
   console.log('listening on port'.green, server.address().port);
-  //Sync our database
+  //Sync our database force true WILL DROP ALL TABLES every restart
+  //remember to set it to false for persistence
   db.sync({ force: true }).then(() => {
     console.log('db is synced'.green);
   });
