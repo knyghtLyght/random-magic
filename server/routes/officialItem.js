@@ -14,3 +14,42 @@ router.post("/", async (req, res, next) => {
     });
   }
 });
+
+router.get("/", async (req, res, next) => {
+  try {
+    const itemList = await item.findAll();
+    res.send(itemList);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      err: "there was an error while retriving the item List"
+    });
+  }
+});
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const itemList = await item.findByPk(req.params.id, {
+      include: [{ all: true }]
+    });
+    res.send(itemList);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      err: "there was an error while retriving the item List"
+    });
+  }
+});
+
+router.get("/search", async (req, res, next) => {
+  try {
+    const query = req.query;
+    const itemList = await item.findAll({});
+    res.send(itemList);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      err: "there was an error while retriving the item List"
+    });
+  }
+});
