@@ -68,3 +68,15 @@ router.post("/register", async (req, res, next) => {
     });
   }
 });
+
+router.get("/", async (req, res, next) => {
+  try {
+    const userList = await User.findAll({ include: [{ all: true }] });
+    res.send(userList);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      err: "There was an error retriving the user list"
+    });
+  }
+});
