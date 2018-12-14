@@ -9,8 +9,8 @@ A web app intended to provide random item generation for 5the edition dungons an
   - [x] User Functionality
     - [x] User Registration
     - [x] User Login
-  - [] Item Functionality
-  - [] Search Functionality
+  - [ ] Item Functionality
+  - [ ] Search Functionality
 
 - [] Front End Display
 
