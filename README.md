@@ -35,11 +35,16 @@ Vue.js front end with an Express backend utalizing the Sequelize ORM to allow fo
     - [ ] Get all Items
     - [ ] Get Item by query string
   - [ ] Procederial Item routes
+    - [ ] Create Item
+    - [ ] Update Item
+    - [ ] Get all Items
+    - [ ] Get Item by query string
 
 - [ ] Database setup
+
   - [ ] Models setup
   - [ ] Associations setup
-  - [ ] User Seed
+  - [x] User Seed
   - [ ] Item Seed
   - [ ] Effect Seed
 
@@ -66,14 +71,19 @@ If you want to use an actual SQL database instead of Sqlite be sure to update th
 | Volleyball     |
 
 ### Compiles and hot-reloads for development
+
 Client
+
 ```
 npm run serve
 ```
+
 Server
+
 ```
 npm start
 ```
+
 ### Compiles and minifies for production
 
 ```
