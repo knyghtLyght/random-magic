@@ -1,4 +1,4 @@
-# random-magic
+# Random Magic
 
 A web app intended to provide random item generation for 5the edition dungons and dragons. The app will randomly generate any of the offical item content as well as procediraly generated items.
 
@@ -12,15 +12,15 @@ A web app intended to provide random item generation for 5the edition dungons an
   - [ ] Item Functionality
   - [ ] Search Functionality
 
-- [] Front End Display
+- [ ] Front End Display
 
-  - [] User Profile
-  - [] Mob Search Panel
-  - [] Rarity Panel
-  - [] Item Search Panel
-  - [] Item Display PanelS
+  - [ ] User Profile
+  - [ ] Mob Search Panel
+  - [ ] Rarity Panel
+  - [ ] Item Search Panel
+  - [ ] Item Display PanelS
 
-- [] Back End Funtionality
+- [ ] Back End Funtionality
 
 ## Project dev setup
 
