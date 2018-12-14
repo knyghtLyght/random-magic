@@ -17,10 +17,10 @@ Vue.js front end with an Express backend utalizing the Sequelize ORM to allow fo
 - [ ] Front End Display
 
   - [ ] User Profile
-  - [ ] Mob Search Panel
-  - [ ] Rarity Panel
-  - [ ] Item Search Panel
-  - [ ] Item Display PanelS
+  - [x] Mob Search Panel
+  - [x] Rarity Panel
+  - [x] Item Search Panel
+  - [x] Item Display Panel
 
 - [ ] Back End Funtionality
 
