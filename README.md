@@ -2,7 +2,7 @@
 
 A web app intended to provide random item generation for 5the edition dungons and dragons. The app will randomly generate any of the offical item content as well as procediraly generated items.
 
-Vue.js front end with an Express backend utalizing the Sequelize ORM to all for any SQL database
+Vue.js front end with an Express backend utalizing the Sequelize ORM to allow for any SQL database
 
 ## Progress
 
