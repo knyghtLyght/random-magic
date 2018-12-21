@@ -17,7 +17,9 @@ router.post("/", async (req, res, next) => {
 
 router.get("/", async (req, res, next) => {
   try {
-    const itemList = await item.findAll();
+    const itemList = await Item.findAll({
+      include: [{ all: true }]
+    });
     res.send(itemList);
   } catch (err) {
     console.log(err);
@@ -29,7 +31,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const itemList = await item.findByPk(req.params.id, {
+    const itemList = await Item.findByPk(req.params.id, {
       include: [{ all: true }]
     });
     res.send(itemList);
@@ -44,7 +46,7 @@ router.get("/:id", async (req, res, next) => {
 router.get("/search", async (req, res, next) => {
   try {
     const query = req.query;
-    const itemList = await item.findAll({});
+    const itemList = await Item.findAll({});
     res.send(itemList);
   } catch (err) {
     console.log(err);
@@ -52,4 +54,12 @@ router.get("/search", async (req, res, next) => {
       err: "there was an error while retriving the item List"
     });
   }
+});
+
+router.get("/test", (req, res, next) => {
+  Item.findAll({
+    include: [{ all: true }]
+  })
+    .then(res.send.bind(res))
+    .catch(next);
 });

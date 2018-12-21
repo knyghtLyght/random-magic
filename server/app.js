@@ -7,6 +7,7 @@ const cors = require('cors');
 const path = require('path'); //Built in node module that handles path minipulation
 const db = require('./db');
 const userRouter = require('./routes/user');
+const officalItemsRouter = require('./routes/officialItem');
 
 //Init our server instance
 const app = express();
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 //User route
 app.use('/user', userRouter);
+app.use('/officalItems', officalItemsRouter);
 
 //Start our server
 const server = app.listen(config.port, () => {
