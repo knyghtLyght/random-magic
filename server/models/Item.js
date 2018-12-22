@@ -5,8 +5,13 @@ const db = require('../db');
 const Item = db.define('Item', {
   level: Sequelize.INTEGER,
   name: Sequelize.STRING,
+  itemClass: Sequelize.STRING,
+  itemSubClass: Sequelize.STRING,
+  itemType: Sequelize.STRING,
   rarity: Sequelize.STRING,
-  flavor: Sequelize.TEXT
+  effect: Sequelize.STRING,
+  flavor: Sequelize.TEXT,
+  tags: Sequelize.TEXT
 });
 
 module.exports = Item;

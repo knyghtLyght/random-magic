@@ -6,7 +6,8 @@ const Effect = db.define('effect', {
   level: Sequelize.INTEGER,
   name: Sequelize.STRING,
   rarity: Sequelize.STRING,
-  description: Sequelize.TEXT
+  description: Sequelize.TEXT,
+  tag: Sequelize.TEXT
 });
 
 module.exports = Effect;

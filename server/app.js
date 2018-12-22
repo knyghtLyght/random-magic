@@ -8,6 +8,7 @@ const path = require('path'); //Built in node module that handles path minipulat
 const db = require('./db');
 const userRouter = require('./routes/user');
 const officalItemsRouter = require('./routes/officialItem');
+const effectRouter = require('./routes/effect');
 
 //Init our server instance
 const app = express();
@@ -19,9 +20,10 @@ app.use(volleyball);
 app.use(bodyParser.json());
 //Serve up the public folder contents for static files
 app.use(express.static(path.join(__dirname, 'public')));
-//User route
+//Routers
 app.use('/user', userRouter);
 app.use('/officalItems', officalItemsRouter);
+app.use('/effect', effectRouter);
 
 //Start our server
 const server = app.listen(config.port, () => {

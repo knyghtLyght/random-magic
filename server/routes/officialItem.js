@@ -3,6 +3,7 @@ const Item = require("../models/item");
 
 module.exports = router;
 
+//Creation route
 router.post("/", async (req, res, next) => {
   try {
     const item = await Item.create(req.body);
@@ -15,6 +16,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+//Get all route
 router.get("/", async (req, res, next) => {
   try {
     const itemList = await Item.findAll({
@@ -29,6 +31,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+//Get by id route
 router.get("/:id", async (req, res, next) => {
   try {
     const itemList = await Item.findByPk(req.params.id, {
@@ -43,6 +46,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+//Search query route
 router.get("/search", async (req, res, next) => {
   try {
     const query = req.query;
@@ -56,6 +60,7 @@ router.get("/search", async (req, res, next) => {
   }
 });
 
+//Test route for associations
 router.get("/test", (req, res, next) => {
   Item.findAll({
     include: [{ all: true }]

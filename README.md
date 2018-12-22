@@ -48,6 +48,10 @@ Vue.js front end with an Express backend utalizing the Sequelize ORM to allow fo
   - [ ] Item Seed
   - [ ] Effect Seed
 
+### Progress notes
+
+I was unable to get sequelize associations to work so I went back to a programatic approch.
+
 ## Project dev setup
 
 ```
