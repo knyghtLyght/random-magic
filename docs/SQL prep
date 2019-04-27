@@ -1,4 +1,8 @@
-CREATE TABLE test_sheet (
+http://www.cheat-sheets.org/sites/sql.su/
+https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins
+
+
+CREATE TABLE Sheets (
 id SERIAL PRIMARY KEY,
 owner VARCHAR(20),
 name VARCHAR(25),
@@ -6,15 +10,127 @@ class VARCHAR(15),
 level INTEGER
 );
 
-INSERT INTO test_sheet (owner, name, class, level)
+INSERT INTO Sheets (owner, name, class, level)
 VALUES (
 'Kevin',
 'Lyght',
 'Monk',
 5
-)
+);
 
-1250
-7 days
-1750
-30 days
+CREATE TABLE players (
+id SERIAL PRIMARY KEY,
+name VARCHAR(20),
+role VARCHAR(25),
+daysJoined INTEGER
+);
+
+INSERT INTO players (name, role, daysJoined)
+VALUES (
+'Kevin',
+'Admin',
+10
+);
+
+INSERT INTO Sheets (owner, name, class, level)
+VALUES (
+'Kevin',
+'Dark',
+'Warlock',
+5
+),(
+'Kevin',
+'Dawn',
+'Druid',
+3
+),(
+'Kevin',
+'Dusk',
+'Rogue',
+8
+),(
+'Kevin',
+'Noon',
+'Fighter',
+6
+),(
+'Anna',
+'Hedgie',
+'Cleric',
+6
+),(
+'Anna',
+'FukOff',
+'Ranger',
+8
+),(
+'Boomer',
+'Hepty',
+'Fighter',
+2
+),(
+'Anna',
+'Wilfred',
+'Raptor',
+10
+),(
+'Boomer',
+'Yaharek',
+'Ranger',
+3
+);
+
+INSERT INTO players (name, role, daysJoined)
+VALUES (
+'Anna',
+'Admin',
+10
+),(
+'Justin',
+'Member',
+8
+),(
+'Boomer',
+'Member',
+6
+);
+
+SELECT players.name, sheets.name
+FROM players
+INNER JOIN sheets
+ON players.name=sheets.owner
+;
+
+SELECT players.name, sheets.name
+FROM players
+LEFT JOIN sheets
+ON players.name=sheets.owner
+;
+
+SELECT players.name, sheets.name
+FROM players
+RIGHT JOIN sheets
+ON players.name=sheets.owner
+;
+
+SELECT players.id, players.name, sheets.id, sheets.name
+FROM players
+FULL OUTER JOIN sheets
+ON players.id=sheets.id
+;
+
+DELETE FROM sheets
+WHERE id=2
+;
+
+DELETE FROM sheets
+WHERE name='Noon' 
+;
+
+INSERT INTO Sheets (owner, name, class, level)
+VALUES (
+'Kevin',
+'Noon',
+'Fighter',
+6
+);
